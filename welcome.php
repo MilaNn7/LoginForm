@@ -1,13 +1,10 @@
 <?php
-session_start(); //otvorenie session
+session_start();
 
-//zistenie ci je session nastavene
-if(isset($_SESSION['username']) ) {
-    echo '<link rel=stylesheet href="welcome.css">';
-    echo '<div class="zaklad">';
-    echo '<p>Welcome <span>'.$_SESSION['username'].'</span></p><br>';
-    echo '<p>Click here to <a href = "logout.php" tite = "Logout">logout.</p>';//odkaz na odhlasenie
-    echo '</div>';
+// Check if user is logged in, if not redirect to login page
+if(!isset($_SESSION['valid']) || $_SESSION['valid'] !== true) {
+    header("Location: index.php");
+    exit();
 }
 ?>
 $servername = "localhost";
