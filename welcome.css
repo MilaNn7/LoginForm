@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Futura';
-    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    background: linear-gradient(#ffd6e8, #ff7096, #ff4773, #ff004f);
     background-size: 400% 400%;
 }
 
@@ -16,25 +16,6 @@ body {
     align-items: center;
     margin: auto;
     height: 100vh;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-table th {
-    background-color: #f2f2f2;
-}
-
-.table-container {
-    overflow-x: auto;
 }
 
 a {
