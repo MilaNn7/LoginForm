@@ -8,10 +8,9 @@ if(!isset($_SESSION['valid']) || $_SESSION['valid'] !== true) {
 }
 
 $servername = "localhost";
-$username = "horvath3a2"; // Vaše užívateľské meno
-$password = "Neviem1"; // Vaše heslo
-$dbname = "horvath3a2"; // Vaše meno databázy
-
+$username = "horvath3a2"; 
+$password = "Neviem1"; 
+$dbname = "horvath3a2"; 
 // Pripojenie k databáze
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -20,13 +19,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sort_by = "id";
-$order = "ASC";
 
-if(isset($_GET['sort_by'])) {
-    $sort_by = $_GET['sort_by'];
-    $order = $_GET['order'];
-}
+
 
 $sql = "SELECT id, nazov, zaner, rok, cena FROM t_table ORDER BY $sort_by $order";
 $result = $conn->query($sql);
@@ -54,22 +48,6 @@ $result = $conn->query($sql);
         </div>
         <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
 
-        <form method="GET" action="">
-            <label for="sort_by">Sort By:</label>
-            <select name="sort_by" id="sort_by">
-                <option value="id">ID</option>
-                <option value="nazov">Name</option>
-                <option value="zaner">Genre</option>
-                <option value="rok">Year</option>
-                <option value="cena">Price</option>
-            </select>
-            <label for="order">Order:</label>
-            <select name="order" id="order">
-                <option value="ASC">Ascending</option>
-                <option value="DESC">Descending</option>
-            </select>
-            <button type="submit">Sort</button>
-        </form>
 
         <table>
             <thead>
