@@ -45,5 +45,5 @@ if(isset($_SESSION['username']) ) {
     $conn->close();
     }
     echo '</div>';
-}
+
 ?>
