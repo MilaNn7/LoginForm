@@ -9,7 +9,7 @@ if(!isset($_SESSION['valid']) || $_SESSION['valid'] !== true) {
 
 $servername = "localhost";
 $username = "horvath3a2"; 
-$password = "Neviem1"; 
+$password = "Neviem123"; 
 $dbname = "horvath3a2"; 
 // Pripojenie k databáze
 $conn = new mysqli($servername, $username, $password, $dbname);
