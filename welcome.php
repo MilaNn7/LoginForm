@@ -15,9 +15,7 @@ if(isset($_SESSION['username']) ) {
 
     $conn = new mysqli($servername, $username, $password, $dbname)
 
-    if ($conn->connect_error) {
-        die("<p class='error-message'>Connection failed: " . $conn->connect_error . "</p>");
-    }
+    
 
     $sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table";
     $result = $conn->query($sql);
