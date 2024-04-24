@@ -9,7 +9,7 @@ body {
     background-size: 400% 400%;
 }
 
-.zaklad {
+wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
