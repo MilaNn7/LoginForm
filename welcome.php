@@ -34,7 +34,7 @@ $result = $conn->query($sql);
     <title>Welcome</title>
     <link rel="stylesheet" href="welcome.css">
 </head>
-    <style>
+    <style="width:100%">
 table, th, td {
   border:1px solid black;
 }
