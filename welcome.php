@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 
 
 
-$sql = "SELECT id, nazov, zaner, rok, cena FROM t_table";
+$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table";
 $result = $conn->query($sql);
 ?>
 
@@ -67,7 +67,7 @@ $result = $conn->query($sql);
                         echo "<td>".$row['id']."</td>";
                         echo "<td>".$row['nazov']."</td>";
                         echo "<td>".$row['zaner']."</td>";
-                        echo "<td>".$row['rok']."</td>";
+                        echo "<td>".$row['datum_vydania']."</td>";
                         echo "<td>".$row['cena']."</td>";
                         echo "</tr>";
                     }
