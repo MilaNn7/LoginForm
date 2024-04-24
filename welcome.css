@@ -27,9 +27,3 @@ a {
 span {
     text-decoration: underline;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    overflow-x: auto;
-}
