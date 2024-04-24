@@ -34,6 +34,11 @@ $result = $conn->query($sql);
     <title>Welcome</title>
     <link rel="stylesheet" href="welcome.css">
 </head>
+    <style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
 <body>
     <div class="wrapper">
         <div class="messages">
