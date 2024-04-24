@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 
 
 
-$sql = "SELECT id, nazov, zaner, rok, cena FROM t_table ORDER BY $sort_by $order";
+$sql = "SELECT id, nazov, zaner, rok, cena FROM t_table";
 $result = $conn->query($sql);
 ?>
 
