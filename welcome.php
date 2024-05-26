@@ -63,10 +63,10 @@ table, th, td {
             <label for="sort_by">Sort By:</label>
             <select name="sort_by" id="sort_by">
                 <option value="id">ID</option>
-                <option value="name">Name</option>
-                <option value="genre">Genre</option>
-                <option value="year">Year</option>
-                <option value="price">Price</option>
+                <option value="nazov">Name</option>
+                <option value="zaner">Genre</option>
+                <option value="datum_vydania">Year</option>
+                <option value="cena">Price</option>
             </select>
             <label for="order">Order:</label>
             <select name="order" id="order">
