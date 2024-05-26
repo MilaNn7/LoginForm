@@ -19,10 +19,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$sort_by = "id"; 
+$order = "ASC"; 
+
+if(isset($_GET['sort_by'])) {
+    $sort_by = $_GET['sort_by'];
+    $order = $_GET['order'];
+}
 
 
-
-$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table";
+$sql = "SELECT * FROM t_table ORDER BY $sort_by $order";
 $result = $conn->query($sql);
 ?>
 
