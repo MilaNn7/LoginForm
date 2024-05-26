@@ -19,11 +19,28 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$sort_by = "id"; 
+$order = "ASC"; 
 
+if(isset($_GET['sort_by'])) {
+    $sort_by = $_GET['sort_by'];
+    $order = $_GET['order'];
+}
 
-
-$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table";
+$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table ORDER BY $sort_by $order";
 $result = $conn->query($sql);
+
+$total_products = $result->num_rows;
+
+$total_price = 0;
+if ($total_products > 0) {
+    while($row = $result->fetch_assoc()) {
+        $total_price += $row['cena'];
+    }
+    $average_price = $total_price / $total_products;
+    $result->data_seek(0); // Reset result pointer
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,12 +50,12 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="welcome.css">
-</head>
     <style>
-table, th, td {
-  border:1px solid black;
-}
-</style>
+        table, th, td {
+            border:1px solid black;
+        }
+    </style>
+</head>
 <body>
     <div class="wrapper">
         <div class="messages">
@@ -52,8 +69,31 @@ table, th, td {
             ?>
         </div>
         <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
-
-
+        
+        <div class="statistics">
+            <p>Total Records: <?php echo $total_products; ?></p>
+            <?php if ($total_products > 0): ?>
+            <p>Average Price: <?php echo number_format($average_price, 2); ?></p>
+            <?php endif; ?>
+        </div>
+        
+        <form method="GET" action="">
+            <label for="sort_by">Sort By:</label>
+            <select name="sort_by" id="sort_by">
+                <option value="id">ID</option>
+                <option value="nazov">Name</option>
+                <option value="zaner">Genre</option>
+                <option value="datum_vydania">Year</option>
+                <option value="cena">Price</option>
+            </select>
+            <label for="order">Order:</label>
+            <select name="order" id="order">
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
+            </select>
+            <button type="submit">Sort</button>
+        </form>
+        
         <table>
             <thead>
                 <tr>
