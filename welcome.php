@@ -21,12 +21,12 @@ if ($conn->connect_error) {
 
 
 
-$sql = "SELECT * FROM t_table;
+$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table;
 $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
