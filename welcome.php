@@ -21,7 +21,8 @@ if ($conn->connect_error) {
 
 
 
-$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table;
+
+$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table";
 $result = $conn->query($sql);
 ?>
 
@@ -51,6 +52,7 @@ table, th, td {
             ?>
         </div>
         <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+
 
         <table>
             <thead>
@@ -90,3 +92,4 @@ table, th, td {
 <?php
 $conn->close();
 ?>
+
