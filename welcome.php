@@ -53,7 +53,22 @@ table, th, td {
         </div>
         <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
 
-
+        <form method="GET" action="">
+            <label for="sort_by">Sort By:</label>
+            <select name="sort_by" id="sort_by">
+                <option value="id">ID</option>
+                <option value="name">Name</option>
+                <option value="genre">Genre</option>
+                <option value="year">Year</option>
+                <option value="price">Price</option>
+            </select>
+            <label for="order">Order:</label>
+            <select name="order" id="order">
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
+            </select>
+            <button type="submit">Sort</button>
+        </form>
         <table>
             <thead>
                 <tr>
