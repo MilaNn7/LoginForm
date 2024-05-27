@@ -1,7 +1,4 @@
 <?php
-$conn->close();
-?>
-<?php
 session_start(); // Otvorenie session
 
 // Kontrola, či je používateľ prihlásený, ak nie, presmeruje na prihlasovaciu stránku
