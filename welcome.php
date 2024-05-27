@@ -1,4 +1,7 @@
 <?php
+$conn->close();
+?>
+<?php
 session_start(); // Otvorenie session
 
 // Kontrola, či je používateľ prihlásený, ak nie, presmeruje na prihlasovaciu stránku
@@ -27,11 +30,7 @@ if(isset($_GET['sort_by'])) {
     $order = $_GET['order'];
 }
 
-// Upravený SQL dotaz s JOIN
-$sql = "SELECT t_table.id, t_table.nazov, t_categories.zaner AS kategoria, t_table.datum_vydania, t_table.cena 
-        FROM t_table 
-        JOIN t_categories ON t_table.zaner = t_categories.id 
-        ORDER BY $sort_by $order";
+$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table ORDER BY $sort_by $order";
 $result = $conn->query($sql);
 
 $total_products = $result->num_rows;
@@ -86,7 +85,7 @@ if ($total_products > 0) {
             <select name="sort_by" id="sort_by">
                 <option value="id">ID</option>
                 <option value="nazov">Name</option>
-                <option value="kategoria">Category</option>
+                <option value="zaner">Genre</option>
                 <option value="datum_vydania">Year</option>
                 <option value="cena">Price</option>
             </select>
@@ -103,7 +102,7 @@ if ($total_products > 0) {
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Category</th>
+                    <th>Genre</th>
                     <th>Year</th>
                     <th>Price</th>
                 </tr>
@@ -115,7 +114,7 @@ if ($total_products > 0) {
                         echo "<tr>";
                         echo "<td>".$row['id']."</td>";
                         echo "<td>".$row['nazov']."</td>";
-                        echo "<td>".$row['kategoria']."</td>";
+                        echo "<td>".$row['zaner']."</td>";
                         echo "<td>".$row['datum_vydania']."</td>";
                         echo "<td>".$row['cena']."</td>";
                         echo "</tr>";
@@ -132,3 +131,8 @@ if ($total_products > 0) {
     </div>
 </body>
 </html>
+
+<?php
+$conn->close();
+?>
+
