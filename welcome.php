@@ -11,6 +11,7 @@ $servername = "localhost";
 $username = "Milan3a2"; 
 $password = "Neviem123"; 
 $dbname = "horvath3a2"; 
+
 // Pripojenie k databáze
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -27,7 +28,10 @@ if(isset($_GET['sort_by'])) {
     $order = $_GET['order'];
 }
 
-$sql = "SELECT id, nazov, zaner, datum_vydania, cena FROM t_table ORDER BY $sort_by $order";
+$sql = "SELECT t_table.id, t_table.nazov, t_categories.zaner, t_table.datum_vydania, t_table.cena 
+        FROM t_table 
+        JOIN t_categories ON t_table.zaner = t_categories.id 
+        ORDER BY $sort_by $order";
 $result = $conn->query($sql);
 
 $total_products = $result->num_rows;
@@ -40,7 +44,6 @@ if ($total_products > 0) {
     $average_price = $total_price / $total_products;
     $result->data_seek(0); // Reset result pointer
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +114,7 @@ if ($total_products > 0) {
                         echo "<tr>";
                         echo "<td>".$row['id']."</td>";
                         echo "<td>".$row['nazov']."</td>";
-                        echo "<td>".$row['zaner']."</td>";
+                        echo "<td>".$row['zaner']."</td>"; // Genre from t_categories
                         echo "<td>".$row['datum_vydania']."</td>";
                         echo "<td>".$row['cena']."</td>";
                         echo "</tr>";
@@ -132,4 +135,5 @@ if ($total_products > 0) {
 <?php
 $conn->close();
 ?>
+
 
