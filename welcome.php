@@ -28,9 +28,9 @@ if(isset($_GET['sort_by'])) {
     $order = $_GET['order'];
 }
 
-$sql = "SELECT t_table.id, t_table.nazov, t_categories.zaner, t_table.datum_vydania, t_table.cena 
-        FROM t_table 
-        JOIN t_categories ON t_table.zaner = t_categories.id 
+$sql = "SELECT t_table.id, t_table.nazov, t_table.datum_vydania, t_table.cena, t_categories.zaner AS category_name
+        FROM t_table
+        LEFT JOIN t_categories ON t_table.zaner = t_categories.id
         ORDER BY $sort_by $order";
 $result = $conn->query($sql);
 
