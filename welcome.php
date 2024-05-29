@@ -85,7 +85,7 @@ if ($total_products > 0) {
             <select name="sort_by" id="sort_by">
                 <option value="id">ID</option>
                 <option value="nazov">Name</option>
-                <option value="zaner">Genre</option>
+                <option value="category_name">Genre</option>
                 <option value="datum_vydania">Year</option>
                 <option value="cena">Price</option>
             </select>
