@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['password'])) {
     $servername = "localhost";
-    $username = "horvath3a2";
+    $username = "Milan3a2";
     $password = "Neviem123";
     $dbname = "horvath3a2";
 
