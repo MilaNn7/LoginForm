@@ -8,7 +8,7 @@ if(!isset($_SESSION['valid']) || $_SESSION['valid'] !== true) {
 }
 
 $servername = "localhost";
-$username = "Milan3a2"; 
+$username = "horvath3a2"; 
 $password = "Neviem123"; 
 $dbname = "horvath3a2"; 
 
