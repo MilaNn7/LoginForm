@@ -114,7 +114,7 @@ if ($total_products > 0) {
                         echo "<tr>";
                         echo "<td>".$row['id']."</td>";
                         echo "<td>".$row['nazov']."</td>";
-                        echo "<td>".$row['zaner']."</td>"; // Genre from t_categories
+                        echo "<td>".$row['category_name']."</td>"; // Genre from t_categories
                         echo "<td>".$row['datum_vydania']."</td>";
                         echo "<td>".$row['cena']."</td>";
                         echo "</tr>";
